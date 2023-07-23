@@ -9,6 +9,7 @@ router.get('/getGroups',auth.authenticate,groupchatController.getGroups);
 router.get('/addmember',auth.authenticate,groupchatController.addmember);
 router.post('/saveMember',auth.authenticate,groupchatController.saveMember);
 router.post('/viewGroupMember',auth.authenticate,groupchatController.viewGroupMember);
+router.post('/delete',auth.authenticate,groupchatController.deleteMember);
 
 
 

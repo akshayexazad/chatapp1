@@ -2,7 +2,8 @@ const expess =require('express');
 const UserChat = require('../model/userchatmodel');
 const User = require('../model/usermodel');
 const Group = require('../model/groupmodel');
-const Member = require('../model/membermodel')
+const Member = require('../model/membermodel');
+const { where } = require('sequelize');
 
 const sendGroupChat=async (req,res)=>{
     try {
@@ -74,7 +75,7 @@ try{
 
 for(let item in member){
 
- var update = await Member.create({memberemail:member[item].email,userId:member[item].id ,groupId:groupid})
+ var update = await Member.create({memberemail:member[item].email,userId:member[item].id ,groupId:groupid,isAdmin:member[item].isAdmin})
     
 }
 res.send({msg:"okkk",status:true})
@@ -86,14 +87,33 @@ res.send({msg:"okkk",status:true})
 
 const viewGroupMember = async(req,res)=>{
 
+
     const id = req.body.grpid;
-    const memberDetails =  await Member.findAll({where:{groupId:id}});
 
-    console.log(memberDetails)
+    try{
+        const memberDetails =  await Member.findAll({where:{groupId:id}});
+        res.status(201).json({memberDetails:memberDetails})
 
+    }catch(error){
+       console.log(error)
+    }
+   
+    
+
+
+}
+const deleteMember = async (req,res)=>{
+    const grpid = req.body.grpid;
+    const member_id = req.query.id ;
+    const findGrp =await  Member.destroy({where:{groupId:grpid,userId:member_id}});
+    res.status(201).json({msg:"deleted successfully.."})
+
+    console.log(findGrp)
+   
+    
 
 }
 
 module.exports = {
-    sendGroupChat,getGroupChat,creategroup,getGroups,addmember,saveMember,viewGroupMember
+    sendGroupChat,getGroupChat,creategroup,getGroups,addmember,saveMember,viewGroupMember,deleteMember
 }

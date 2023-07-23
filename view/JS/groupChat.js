@@ -86,6 +86,7 @@ function printchat(data,id){
 }
 
 async function sendGroupMessage(event){
+   const  groupid = localStorage.getItem("groupid")
     try {
     event.preventDefault();
     const user_message = event.target.message.value;
@@ -102,13 +103,13 @@ async function sendGroupMessage(event){
         console.log(error) 
     }
 };
-
+// for view group member and admin power
 async function viewGroupMember(event){
     localStorage.setItem("grpid",`${event.target.id}`);
-    const grpid = localStorage.getItem("grpid")
-    alert(event.target.id)
-    const viewGroupMember = await axios.post('http://localhost:3001/groupChat/viewGroupMember',{grpid},{ headers: { "Authorization": token }});
-    console.log(viewGroupMember)
+    
+    window.location.href = '../HTML/adminFeatures.html'
+
+
 
 }
 

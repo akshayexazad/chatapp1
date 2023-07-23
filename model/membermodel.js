@@ -12,10 +12,7 @@ const Member = db.define('member_juction2',{
     memberemail:{
         type:Sequalize.DataTypes.STRING
     },
-    // userid:{
-    //     type:Sequalize.DataTypes.STRING
-    // }
-  
+    isAdmin:Sequalize.DataTypes.BOOLEAN
 
 });
 module.exports = Member;
