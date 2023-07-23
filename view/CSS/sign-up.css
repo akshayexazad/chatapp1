@@ -1,0 +1,43 @@
+body {
+	background: linear-gradient(-45deg, #52bfee, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+#main-border{
+border: 1px solid black;
+width:33%;
+margin-left: 33%;
+/* font-size: 25px; */
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: 30px;
+
+border-radius: 20px;
+}
+input{
+width:200px;
+height:30px;
+border-radius: 10px;
+}
+button{
+    height: 35px;
+}
+button:hover{
+    background-color: rgb(152, 103, 103);
+    
+}

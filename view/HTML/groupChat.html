@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Chat</title>
+    <link rel="stylesheet" href="../CSS//groupChat.css">
+</head>
+<body>
+    <div id="total-grp">
+        <h2>Groups</h2><hr>
+        <div id="for-availabe-group"></div>
+
+    </div>
+    <div id="chat-main-container">
+        <h2>ChatApp</h2><hr>
+        <div id="for-chat-message"></div>
+
+        <div id="message-text-area">
+            <form onsubmit="sendGroupMessage(event)">
+                <input type="text" name="message" id="chat-message">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
+    <script src="../JS/groupChat.js"></script>
+</body>
+</html>

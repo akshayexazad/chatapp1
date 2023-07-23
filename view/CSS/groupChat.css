@@ -1,0 +1,122 @@
+body {
+
+    background: linear-gradient(-45deg, #52bfee, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#chat-main-container {
+    border: 1px solid black;
+    width: 33%;
+    margin-left: 60%;
+    /* font-size: 25px; */
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+input {
+    width: 85%;
+    height: 30px;
+    border-radius: 10px;
+}
+
+button {
+    height: 35px;
+}
+
+button:hover {
+    background-color: rgb(152, 103, 103);
+
+}
+
+#for-chat-message {
+    border: 1px solid black;
+    width: 100%;
+    background-color: rgb(160, 213, 204);
+    position: relative;
+    height: 370px;
+    border-radius: 20px;
+    overflow: auto;
+    word-wrap: break-word;
+    float: right;
+
+}
+#for-chat-message #akshay{
+    border: 1px solid none;
+    border-radius: 5px;
+    margin: 3px;
+    padding-left: 500px;
+    padding-left: 10%;
+    width: 40%;
+    color: red;
+    float: right;
+}
+for-chat-message #other{
+    border: 1px solid none;
+    border-radius: 5px;
+    margin: 3px;
+    padding-left: 500px;
+    padding-left: 10%;
+    width: 40%;
+    color:blue;
+    float: left;
+}
+
+
+
+#message-text-area {
+    padding-top: 7px;
+}
+
+#total-grp {
+    float: left;
+    border: 1px solid black;
+    width: 33%;
+    height: 75%;
+    /* padding-left: 30px; */
+    padding-right: 30px;
+    padding-bottom: 30px;
+
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+}
+
+#for-availabe-group {
+    border: 1px solid black;
+    width: 100%;
+    background-color: rgb(160, 213, 204);
+    position: relative;
+    height: 90%;
+    border-radius: 20px;
+    overflow: auto;
+    word-wrap: break-word;
+}
+
+#for-availabe-group div {
+    border: 1px solid black;
+}

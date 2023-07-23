@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp</title>
+    <link rel="icon" type="image/x-icon" href="../other/icons8-facebook-messenger.svg">
+    <link rel="stylesheet" href="../CSS/chat.css">
+</head>
+<body>
+    <div id="user-present"></div><br>
+    
+
+    <div class="create-logout" id="Create-group"><button>Create Group</button></div>
+    <div class="create-logout" id="Logout"><button>Logout</button></div>
+    <div id="available-groups" ><button>View Groups</button></div>
+    
+    <div id="active-user-heading">
+        <h2 style="color: green;">Active User</h2><hr>
+        <div id="for-active-user"></div>
+    </div>
+    
+    <div id="chat-main-container">
+        <!-- <h2>User Available For Making Group</h2><hr> -->
+        <div id="for-chat-message"></div>
+
+        <div id="message-text-area">
+            <!-- <form onsubmit="sendMessage(event)">
+                <input type="text" name="message" id="chat-message">  
+                 <button type="submit">Send</button>
+            </form> -->
+        </div>
+        <!-- <input type="text" value="akshay" > -->
+    </div>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
+    <script src="../JS/chat.js"></script>
+</body>
+</html>
