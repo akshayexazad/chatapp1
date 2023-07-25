@@ -62,31 +62,7 @@ button:hover {
     overflow: auto;
     word-wrap: break-word;
     float: right;
-
 }
-#for-chat-message #akshay{
-    border: 1px solid none;
-    border-radius: 5px;
-    margin: 3px;
-    padding-left: 500px;
-    padding-left: 10%;
-    width: 40%;
-    color: red;
-    float: right;
-}
-for-chat-message #other{
-    border: 1px solid none;
-    border-radius: 5px;
-    margin: 3px;
-    padding-left: 500px;
-    padding-left: 10%;
-    width: 40%;
-    color:blue;
-    float: left;
-}
-
-
-
 #message-text-area {
     padding-top: 7px;
 }
@@ -120,4 +96,27 @@ for-chat-message #other{
 
 #for-availabe-group div {
     border: 1px solid black;
+}
+
+#chat-main-container  #for-chat-message .my_message{
+    padding-left: 85%;
+    padding-top: 10px;
+    width: fit-content;
+    font-family: sans-serif;
+    font-weight: bolder;
+    color: green;
+   
+    
+}
+
+#chat-main-container  #for-chat-message .other_message{
+    padding-right:70%;
+    font-family: sans-serif;
+    font-weight: bolder;
+    margin: 10px;
+    color: red;
+    
+}
+#chat-main-container  #for-chat-message div {
+    width: fit-content;
 }

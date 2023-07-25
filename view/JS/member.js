@@ -37,19 +37,9 @@ async function printmember(Info){
 // store selected member
 
 async function addone(event){
-
-
     event.preventDefault();
-    // console.log(event.target.button.value)
- const button  = document.getElementById("hide").innerHTML = "hello"
- console.log(button)
     
-    member[`${event.target.value}`] ={email:event.target.id,id:event.target.value,isAdmin:false}
-
-
-    
-//    x.event.target.id = "akshay"
-    console.log(member)
+    member[`${event.target.value}`] ={email:event.target.id,id:event.target.value,isAdmin:false};
 }
 
 //save meber on data base
@@ -65,7 +55,7 @@ try {
 }  
 });
 
-
+// for making admin
 function makeAdmine(event){
     event.preventDefault();
 

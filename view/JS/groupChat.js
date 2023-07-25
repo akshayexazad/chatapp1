@@ -16,29 +16,35 @@ function parseJwt(token) {
 
 
 
-async function sendGroupMessage(event){
-    try {
-        event.preventDefault();
-        const user_message = event.target.message.value;
+// async function sendGroupMessage(event){
+//    const grpid =  localStorage.getItem("grpid")
+//    console.log(grpid,"null hai ki n")
+//     if(grpid === null){
+//        alert("Please Select a Group")
+//     }
+//     try {
+//         event.preventDefault();
+//         const user_message = event.target.message.value;
         
-        const messageresponse = await axios.post('http://localhost:3001/groupChat/sendGroupChat',{user_message},{ headers: { "Authorization": token }});
-        document.getElementById("chat-message").value = "";
-        const chatmessage= document.getElementById("for-chat-message");
-        const createlm = document.createElement('div');
-        const text = document.createTextNode(messageresponse.data.saveUserChat.message);
-        chatmessage.appendChild(createlm).appendChild(text);
+//         const messageresponse = await axios.post('http://localhost:3001/groupChat/sendGroupChat',{user_message},{ headers: { "Authorization": token }});
+//         document.getElementById("chat-message").value = "";
+//         const chatmessage= document.getElementById("for-chat-message");
+//         const createlm = document.createElement('div');
+//         const text = document.createTextNode(messageresponse.data.saveUserChat.message);
+//         chatmessage.appendChild(createlm).appendChild(text);
     
-        } catch (error) {
-            document.body.innerHTML = document.body.innerHTML + "<h4> Something went wrong </h4>"
-            console.log(error) 
-        }
-};
+//         } catch (error) {
+//             document.body.innerHTML = document.body.innerHTML + "<h4> Something went wrong </h4>"
+//             console.log(error) 
+//         }
+// };
 
 window.addEventListener("DOMContentLoaded",async ()=>{
+    localStorage.setItem("groupid",0)
     try {
   
     const totalGroup = await axios.get(`http://localhost:3001/groupChat/getGroups`,{ headers: { "Authorization": token }});
-    
+    console.log(totalGroup)
     printGroup(totalGroup.data.getGroups)
     
 
@@ -69,32 +75,47 @@ async function viewChat(event){
     localStorage.setItem("groupid",`${event.target.id}`)
    const  groupid1 = localStorage.getItem("groupid")
     const messageresponse = await axios.post('http://localhost:3001/groupChat/getGroupChat',{groupid1},{ headers: { "Authorization": token }});
-    console.log(messageresponse.data.allChat)
+    // console.log(messageresponse.data.allChat)
     printchat(messageresponse.data.allChat,messageresponse.data.myid)
+    // console.log(messageresponse.data)
    
     
 };
 
 function printchat(data,id){
-    alert('hello')
+
     for(let i =0;i<data.length;i++){
         const parentNode = document.getElementById("for-chat-message");
        
-        const childHTML = `<div id = "${id}">${data[i].message} </div>`
-        parentNode.innerHTML = parentNode.innerHTML + childHTML;
+        // console.log(id, "uske baad ",data[i].usersid);
+
+        if(id == data[i].usersid ){
+            const childHTML = `<div class = "my_message" id = "${id}">${data[i].message} </div>`
+            parentNode.innerHTML = parentNode.innerHTML + childHTML;
+        }else{
+            const childHTML = `<div class = "other_message" id = "${id}">${data[i].message} </div>`
+            parentNode.innerHTML = parentNode.innerHTML + childHTML;
         }
+        
+    }
 }
 
 async function sendGroupMessage(event){
-   const  groupid = localStorage.getItem("groupid")
-    try {
     event.preventDefault();
+   const  groupid = localStorage.getItem("groupid")
+   if(groupid ==0){
+    alert("Please Select a Group");
+    return;
+   }
+    try {
+   
     const user_message = event.target.message.value;
     
     const messageresponse = await axios.post('http://localhost:3001/groupChat/sendGroupChat',{user_message,groupid},{ headers: { "Authorization": token }});
     document.getElementById("chat-message").value = "";
     const chatmessage= document.getElementById("for-chat-message");
     const createlm = document.createElement('div');
+    createlm.classList.add("my_message");
     const text = document.createTextNode(messageresponse.data.saveUserChat.message);
     chatmessage.appendChild(createlm).appendChild(text);
 
@@ -105,7 +126,7 @@ async function sendGroupMessage(event){
 };
 // for view group member and admin power
 async function viewGroupMember(event){
-    localStorage.setItem("grpid",`${event.target.id}`);
+    localStorage.setItem("groupid",`${event.target.id}`);
     
     window.location.href = '../HTML/adminFeatures.html'
 

@@ -1,7 +1,7 @@
 
 var token = localStorage.getItem('token');
 window.addEventListener("DOMContentLoaded",async ()=>{
-    const grpid = localStorage.getItem("grpid")
+    const grpid = localStorage.getItem("groupid")
     const viewGroupMember = await axios.post('http://localhost:3001/groupChat/viewGroupMember',{grpid},{ headers: { "Authorization": token }});
     // console.log(viewGroupMember.data.memberDetails);
     printGroup(viewGroupMember.data.memberDetails)
@@ -57,7 +57,7 @@ function normalUser(groups){
   
  async function Remove_member(event){
     event.preventDefault();
-    const grpid = localStorage.getItem("grpid")
+    const grpid = localStorage.getItem("groupid")
     const id = event.target.id;
    
     try {

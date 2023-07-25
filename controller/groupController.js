@@ -8,7 +8,7 @@ const { where } = require('sequelize');
 const sendGroupChat=async (req,res)=>{
     try {
         const {user_message,groupid} = req.body; 
-        const saveUserChat = await  UserChat.create({message:user_message,groupId:groupid,userId:req.user.id});
+        const saveUserChat = await  UserChat.create({message:user_message,groupsid:groupid,usersid:req.user.id});
         res.status(201).json({saveUserChat:saveUserChat})
       } catch (error) {
           console.log(error)
@@ -21,7 +21,7 @@ const getGroupChat = async(req,res)=>{
     const groupid = req.body.groupid1;
     
     try {
-       const getChat =  await UserChat.findAll({where:{groupId:groupid}});
+       const getChat =  await UserChat.findAll({where:{groupsid:groupid}});
        
         res.status(201).json({allChat:getChat,myid:myid})
       

@@ -24,8 +24,8 @@ Group.belongsToMany(User, { through: member });
 User.belongsToMany(Group, { through: chatModel });
 Group.belongsToMany(User, { through: chatModel });
  
-member.hasMany(chatModel);
-chatModel.belongsTo(member);
+// member.hasMany(chatModel);
+// chatModel.belongsTo(member);
 
   
 

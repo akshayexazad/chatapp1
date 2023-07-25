@@ -8,7 +8,14 @@ const chat = db.define("Chat", {
   },
 message:{
     type:Sequelize.STRING,    
+},
+groupsid:{
+  type:Sequelize.STRING,    
+},
+usersid:{
+  type:Sequelize.STRING,
 }
+
 
 })
 module.exports=chat;
