@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Chat</title>
     <link rel="stylesheet" href="../CSS//groupChat.css">
 </head>
+
 <body>
     <div id="total-grp">
-        <h2>Groups</h2><hr>
+        <h2>Groups</h2>
+        <hr>
         <div id="for-availabe-group"></div>
 
     </div>
     <div id="chat-main-container">
-        <h2>ChatApp</h2><hr>
+        <h2 id="group_name"></h2>
+        <hr>
         <div id="for-chat-message"></div>
 
         <div id="message-text-area">
@@ -24,8 +28,9 @@
         </div>
 
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
     <script src="../JS/groupChat.js"></script>
 </body>
+
 </html>

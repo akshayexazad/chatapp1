@@ -10,36 +10,34 @@ const member = require('./model/membermodel');
 
 app.use(cors())
 app.use(bodyparser.json())
-app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyparser.urlencoded({ extended: false }));
 
 
 
-app.use('/user',require('./route/userroute'))
-app.use('/chat',require('./route/chatroute'))
-app.use('/groupChat',require('./route/groupChatroute'))
+app.use('/user', require('./route/userroute'))
+app.use('/chat', require('./route/chatroute'))
+app.use('/groupChat', require('./route/groupChatroute'))
 
 User.belongsToMany(Group, { through: member });
 Group.belongsToMany(User, { through: member });
 
-User.belongsToMany(Group, { through: chatModel });
-Group.belongsToMany(User, { through: chatModel });
- 
-// member.hasMany(chatModel);
-// chatModel.belongsTo(member);
 
-  
-
-database.sync().then(()=>{
+member.hasMany(chatModel);
+chatModel.belongsTo(member);
 
 
-     console.log('done')
-   }).catch((err)=>{
-      console.log(err) 
-   })
+
+database.sync().then(() => {
+
+
+   console.log('done')
+}).catch((err) => {
+   console.log(err)
+})
 
 
 
 
-app.listen(3001,(req,res)=>{
-    console.log('app running on 3001')
+app.listen(3001, (req, res) => {
+   console.log('app running on 3001')
 });
